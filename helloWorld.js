@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const axios = require('axios');
@@ -14,5 +15,5 @@ let port = 8080;
 const server = app.listen(port, ()=> console.log(`Server started on port ${port}`));
 
 app.get('/test', async (request, response)=> {
-  console.log(`Received request from ${request.headers['x-forwarded-for']}`)
+  console.log(`Received request from ${request.headers['x-forwarded-for']}. Here's an env var: {process.env.MASTER_ID}`)
 });
