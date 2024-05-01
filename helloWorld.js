@@ -15,8 +15,8 @@ let port = 8080;
 const server = app.listen(port, ()=> console.log(`Server started on port ${port}`));
 
 app.get('/test', async (request, response)=> {
-  console.log(`Received request from ${request.headers['x-forwarded-for']}`)
-  randNum = Math.random() + 13;
+  randNum = Math.random();
   urlJSON = {test: "testing Reclaim", rand: randNum};
   response.json(urlJSON);
+  console.log(`Received request from ${request.headers['x-forwarded-for']}. Sent ${randNum}.`)
 });
